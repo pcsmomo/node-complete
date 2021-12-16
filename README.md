@@ -26,4 +26,18 @@ The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Perci
    - socket.io
    - websocket
 
+## Section 2: Installing and Exploring Node.js
+
+### 5. What is Node.js?
+
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+|       |  Chrome  |  Node   |
+| :---: | :------: | :-----: |
+| Using |    V8    |   V8    |
+|       |  window  |    -    |
+|       | document |    -    |
+|       |    -     | global  |
+|       |    -     | process |
+
 </details>
