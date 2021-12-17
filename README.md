@@ -4,6 +4,9 @@ The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Perci
 
 ## Folder Structure
 
+- 03-module
+  - notes-app
+
 # Details
 
 <details open> 
@@ -41,5 +44,9 @@ Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 |       | document |    -    |
 |       |    -     | global  |
 |       |    -     | process |
+
+### 10. Importing Your Own Files
+
+modules have their own scope
 
 </details>

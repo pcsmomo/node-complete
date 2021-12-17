@@ -1,4 +1,4 @@
-const fs = require('fs')
+const getNotes = require('./notes.js')
 
-fs.writeFileSync('notes.txt', 'My name is Noah.')
-fs.appendFileSync('notes.txt', '\nAnd this is appended text.')
+const msg = getNotes()
+console.log(msg)
