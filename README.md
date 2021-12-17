@@ -49,4 +49,19 @@ Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 modules have their own scope
 
+### 11. Importing npm Modules
+
+```sh
+npm init -y
+npm i --save validator
+```
+
+[npm validator](https://www.npmjs.com/package/validator)
+
+```js
+const validator = require('validator')
+console.log(validator.isEmail('noah@example.com'))
+console.log(validator.isURL('https://mead.io'))
+```
+
 </details>
