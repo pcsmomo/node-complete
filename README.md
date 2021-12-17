@@ -2,6 +2,8 @@
 
 The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Percival
 
+## Folder Structure
+
 # Details
 
 <details open> 
