@@ -1,7 +1,7 @@
 import chalk from 'chalk'
-import getNotes from './notes.js'
 import _yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import getNotes from './notes.js'
 
 const yargs = _yargs(hideBin(process.argv))
 
