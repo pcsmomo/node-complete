@@ -105,3 +105,6 @@ dist
 
 # chromedriver for selenium
 chromedriver
+
+# private API Keys
+config.js

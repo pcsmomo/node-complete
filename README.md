@@ -213,4 +213,16 @@ Create a account for Weatherstack
 
 http://api.weatherstack.com/current?access_key=MY_API_KEY&query=melbourne
 
+### 31. Making HTTP Requests
+
+```sh
+npm init -y
+npm i --save request
+```
+
+[npm request](https://www.npmjs.com/package/request)
+
+npm request is deprecated but still very popular.\
+We could use `npm postman-request` instead. postman team maintains the request
+
 </details>
