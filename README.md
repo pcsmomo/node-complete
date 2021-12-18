@@ -6,6 +6,8 @@ The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Perci
 
 - 03-module
   - notes-app
+- 06-asynchronous
+  - weather-app
 
 # Details
 
@@ -199,5 +201,7 @@ debug> help
 3. click "inspect"
 4. Add folder on the left side
 5. use Console
+
+## Section 6: Asynchronous Node.js (Weather App)
 
 </details>
