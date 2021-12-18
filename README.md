@@ -137,4 +137,24 @@ node app.js add
 node app.js --help
 ```
 
+### 17. Argument Parsing with Yargs: Part II
+
+```js
+// argument option
+builder: {
+   title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+   }
+}
+
+// execute?
+yargs.parse()
+```
+
+```sh
+node app.js add --title="My title" --body="There are what I need to buy"
+```
+
 </details>
