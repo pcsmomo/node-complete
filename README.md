@@ -204,4 +204,13 @@ debug> help
 
 ## Section 6: Asynchronous Node.js (Weather App)
 
+### 31. Making HTTP Requests
+
+- [Darksky API](https://darksky.net/) - merged to Apple
+- [Weatherstack API](https://weatherstack.com/)
+
+Create a account for Weatherstack
+
+http://api.weatherstack.com/current?access_key=MY_API_KEY&query=melbourne
+
 </details>
