@@ -9,6 +9,8 @@ The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Perci
 
 # Details
 
+[Personal Project.md](./README-personal-prj.MD)
+
 <details open> 
   <summary>Click to Contract/Expend</summary>
 
