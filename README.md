@@ -225,4 +225,8 @@ npm i --save request
 npm request is deprecated but still very popular.\
 We could use `npm postman-request` instead. postman team maintains the request
 
+### 32. Customizing HTTP Requests
+
+[Weatherstack Documentation](https://weatherstack.com/documentation)
+
 </details>
