@@ -17,9 +17,38 @@ export const addNote = function (title, body) {
     notes.push({ title, body })
 
     saveNotes(notes)
-    console.log(chalk.green('New note added!'))
+    console.log(chalk.green.inverse('New note added!'))
   } else {
-    console.log(chalk.red('Note title taken!'))
+    console.log(chalk.red.inverse('Note title taken!'))
+  }
+}
+
+export const removeNote = function (title) {
+  const notes = loadNotes()
+
+  /* way 1 */
+  // const index = notes.findIndex(function (note) {
+  //   return note.title === title
+  // })
+
+  // if (index < 0) {
+  //   console.log(chalk.yellow('Note does not exist.'))
+  // } else {
+  //   notes.splice(index, 1)
+  //   saveNotes(notes)
+  //   console.log(chalk.green(`${title} removed.`))
+  // }
+
+  /* way 2 */
+  const notesToKeep = notes.filter(function (note) {
+    return note.title !== title
+  })
+
+  if (notes.length > notesToKeep.length) {
+    console.log(chalk.green.inverse(`${title} removed.`))
+    saveNotes(notes)
+  } else {
+    console.log(chalk.red.inverse('No note found!'))
   }
 }
 
