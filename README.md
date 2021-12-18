@@ -117,4 +117,24 @@ node 15-process-argv.js app
 - [1] = executed path
 - from [2] = arguments
 
+### 16. Argument Parsing with Yargs: Part I
+
+- Command Line package
+  - Both are faily popular
+  - [npm yargs](https://www.npmjs.com/package/yargs)
+  - [npm commander](https://www.npmjs.com/package/commander)
+    - I have used it in 'typeacript react project'
+
+```sh
+npm install --save yargs
+
+node app.js add --title="This is my title"
+# { _: [ 'add' ], title: 'This is my title', '$0': 'app.js' }
+node app.js --version
+# 1.0.0
+node app.js add
+# Adding a new note!
+node app.js --help
+```
+
 </details>

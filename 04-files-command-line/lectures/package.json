@@ -1,0 +1,16 @@
+{
+  "name": "lectures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "15-process-argv.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.3.0"
+  }
+}
