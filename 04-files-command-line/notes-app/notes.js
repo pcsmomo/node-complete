@@ -7,6 +7,8 @@ export const addNote = (title, body) => {
   // check title duplication
   const duplicateNote = notes.find((note) => note.title === title)
 
+  // debugger
+
   if (!duplicateNote) {
     notes.push({ title, body })
 

@@ -170,4 +170,34 @@ console.log(dataBuffer.toString())
 // Ego is the Enemy
 ```
 
+## Section 5: Debugging Node.js (Notes Apps)
+
+### 26. Debugging Node.js
+
+```js
+// notes.js
+debugger
+```
+
+```sh
+node inspect app.js add --title="Cours ideas" --body=""
+# < Debugger listening on ws://127.0.0.1:9229/2e755cff-810f-43c0-91d5-0af21a3d7d6f
+# < For help, see: https://nodejs.org/en/docs/inspector
+# <
+# < Debugger attached.
+# <
+#  ok
+debug>
+debug> restart
+debug> help
+```
+
+1. Navigate `chrome://inspect`
+2. (Optional) Configure
+   - localhost:92222
+   - localhost:92229
+3. click "inspect"
+4. Add folder on the left side
+5. use Console
+
 </details>
