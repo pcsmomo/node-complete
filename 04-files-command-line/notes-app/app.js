@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import _yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import getNotes from './notes.js'
+import { addNote } from './notes.js'
 
 const yargs = _yargs(hideBin(process.argv))
 
@@ -25,8 +25,7 @@ yargs.command({
     }
   },
   handler: function (argv) {
-    console.log('Title: ' + argv.title)
-    console.log('Body: ' + argv.body)
+    addNote(argv.title, argv.body)
   }
 })
 
