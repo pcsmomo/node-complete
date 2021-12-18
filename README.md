@@ -94,4 +94,10 @@ npm i --save chalk
 But here, chalk library doesn't support commonjs. (I have to down grade it to follow the course) \
 So I will be using only commonjs syntax.
 
+### 13. Global npm Modules and nodemon
+
+```sh
+npm install -g nodemon
+```
+
 </details>
