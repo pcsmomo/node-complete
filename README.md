@@ -100,4 +100,21 @@ So I will be using only commonjs syntax.
 npm install -g nodemon
 ```
 
+## Section 4: File System and Command Line Args (Notes App)
+
+### 15. Getting Input from Users
+
+```sh
+node 15-process-argv.js app
+# [
+#   '/Users/noah/.nvm/versions/node/v16.13.1/bin/node',
+#   '/Users/noah/Documents/Study/Study_codes/udemy/node-complete/node-complete-git/04-files-command-line/lectures/15-process-argv.js',
+#   'app'
+# ]
+```
+
+- [0] = node js executable
+- [1] = executed path
+- from [2] = arguments
+
 </details>
