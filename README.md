@@ -72,6 +72,8 @@ console.log(validator.isURL('https://mead.io'))
 
 ```sh
 npm i --save chalk
+# My version is chalk@5.0.0 which only supports es6 (import/export)
+# chalk@4.1.0 still supports commonjs (require)
 ```
 
 [npm chalk](https://www.npmjs.com/package/chalk)
@@ -233,5 +235,12 @@ We could use `npm postman-request` instead. postman team maintains the request
 
 - [Mapbox API - Map Geocoding](https://docs.mapbox.com/api/search/geocoding/#forward-geocoding)
   - Search 'CITY' and get geocode
+
+### 34. Handling Errors
+
+```sh
+npm i --save chalk@4.1.0
+# chalk@4.1.0 still supports commonjs (require)
+```
 
 </details>
