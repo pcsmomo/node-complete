@@ -229,4 +229,9 @@ We could use `npm postman-request` instead. postman team maintains the request
 
 [Weatherstack Documentation](https://weatherstack.com/documentation)
 
+### 33. An HTTP Request Challenge
+
+- [Mapbox API - Map Geocoding](https://docs.mapbox.com/api/search/geocoding/#forward-geocoding)
+  - Search 'CITY' and get geocode
+
 </details>

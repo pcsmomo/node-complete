@@ -1,0 +1,100 @@
+{
+  "type": "FeatureCollection",
+  "query": ["melbourne"],
+  "features": [
+    {
+      "id": "place.7068896531111320",
+      "type": "Feature",
+      "place_type": ["place"],
+      "relevance": 1,
+      "properties": { "wikidata": "Q3141" },
+      "text": "Melbourne",
+      "place_name": "Melbourne, Victoria, Australia",
+      "bbox": [144.593741856, -38.433859306, 145.512528832, -37.5112737225],
+      "center": [144.9632, -37.8142],
+      "geometry": { "type": "Point", "coordinates": [144.9632, -37.8142] },
+      "context": [
+        { "id": "region.10151275538899450", "wikidata": "Q36687", "short_code": "AU-VIC", "text": "Victoria" },
+        { "id": "country.9968792518346070", "wikidata": "Q408", "short_code": "au", "text": "Australia" }
+      ]
+    },
+    {
+      "id": "place.16426916111111320",
+      "type": "Feature",
+      "place_type": ["place"],
+      "relevance": 1,
+      "properties": { "wikidata": "Q949779" },
+      "text": "Melbourne",
+      "place_name": "Melbourne, Florida, United States",
+      "bbox": [-80.862828608, 28.035094032, -80.593174018, 28.266795],
+      "center": [-80.6081, 28.0836],
+      "geometry": { "type": "Point", "coordinates": [-80.6081, 28.0836] },
+      "context": [
+        { "id": "district.14510513454517340", "wikidata": "Q488517", "text": "Brevard County" },
+        { "id": "region.7862008843235010", "wikidata": "Q812", "short_code": "US-FL", "text": "Florida" },
+        { "id": "country.19678805456372290", "wikidata": "Q30", "short_code": "us", "text": "United States" }
+      ]
+    },
+    {
+      "id": "poi.601295461128",
+      "type": "Feature",
+      "place_type": ["poi"],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4b058755f964a520ca8c22e3",
+        "address": "Airport Dr",
+        "wikidata": "Q733738",
+        "landmark": true,
+        "category": "airport",
+        "maki": "airport"
+      },
+      "text": "Melbourne Airport (MEL)",
+      "place_name": "Melbourne Airport (MEL), Airport Dr, Melbourne, Victoria 3045, Australia",
+      "center": [144.846079, -37.671811500000004],
+      "geometry": { "coordinates": [144.846079, -37.671811500000004], "type": "Point" },
+      "context": [
+        { "id": "postcode.18507174482049140", "text": "3045" },
+        { "id": "locality.8526839087317090", "wikidata": "Q14935213", "text": "Melbourne Airport" },
+        { "id": "place.7068896531111320", "wikidata": "Q3141", "text": "Melbourne" },
+        { "id": "region.10151275538899450", "wikidata": "Q36687", "short_code": "AU-VIC", "text": "Victoria" },
+        { "id": "country.9968792518346070", "wikidata": "Q408", "short_code": "au", "text": "Australia" }
+      ]
+    },
+    {
+      "id": "locality.8526839087317090",
+      "type": "Feature",
+      "place_type": ["locality"],
+      "relevance": 1,
+      "properties": { "wikidata": "Q14935213" },
+      "text": "Melbourne Airport",
+      "place_name": "Melbourne Airport, Victoria, Australia",
+      "bbox": [144.79761465, -37.71038087, 144.87423803, -37.64101001],
+      "center": [144.84056, -37.6875],
+      "geometry": { "type": "Point", "coordinates": [144.84056, -37.6875] },
+      "context": [
+        { "id": "place.7068896531111320", "wikidata": "Q3141", "text": "Melbourne" },
+        { "id": "region.10151275538899450", "wikidata": "Q36687", "short_code": "AU-VIC", "text": "Victoria" },
+        { "id": "country.9968792518346070", "wikidata": "Q408", "short_code": "au", "text": "Australia" }
+      ]
+    },
+    {
+      "id": "poi.687194802848",
+      "type": "Feature",
+      "place_type": ["poi"],
+      "relevance": 1,
+      "properties": { "foursquare": "4b637ff8f964a520b77e2ae3", "landmark": true, "address": "1 Air Terminal Pkwy", "category": "airport", "maki": "airport" },
+      "text": "Melbourne International Airport (MLB)",
+      "place_name": "Melbourne International Airport (MLB), 1 Air Terminal Pkwy, Melbourne, Florida 32901, United States",
+      "center": [-80.630473, 28.098625],
+      "geometry": { "coordinates": [-80.630473, 28.098625], "type": "Point" },
+      "context": [
+        { "id": "postcode.5742334945402510", "text": "32901" },
+        { "id": "place.16426916111111320", "wikidata": "Q949779", "text": "Melbourne" },
+        { "id": "district.14510513454517340", "wikidata": "Q488517", "text": "Brevard County" },
+        { "id": "region.7862008843235010", "wikidata": "Q812", "short_code": "US-FL", "text": "Florida" },
+        { "id": "country.19678805456372290", "wikidata": "Q30", "short_code": "us", "text": "United States" }
+      ]
+    }
+  ],
+  "attribution": "NOTICE: © 2021 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+}
