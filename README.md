@@ -243,4 +243,13 @@ npm i --save chalk@4.1.0
 # chalk@4.1.0 still supports commonjs (require)
 ```
 
+### 41. Bonus: HTTP Requests Without a Library
+
+- [http.request - Node DOC](https://nodejs.org/api/http.html#httprequestoptions-callback)
+- [https.request - Node DOC](https://nodejs.org/api/https.html#httpsrequestoptions-callback)
+
+HTTP request is can be done with this built-in raw `http.request`,\
+but the way to use is more complicated than other 3rd party libraries.\
+such as axios, request, node-fetch and so on
+
 </details>
