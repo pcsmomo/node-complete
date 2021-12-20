@@ -5,7 +5,7 @@ const geocode = (address, callback) => {
   const encodedAddress = encodeURIComponent(address)
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=${MAPBOX_KEY}`
 
-  request({ url: url, json: true }, (error, response) => {
+  request({ url, json: true }, (error, response) => {
     if (error) {
       callback('Unable to connect to weather service!', undefined)
       return

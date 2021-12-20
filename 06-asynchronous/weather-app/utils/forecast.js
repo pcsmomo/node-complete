@@ -11,7 +11,7 @@ const forecast = (latitude, longitude, callback) => {
   // })
 
   // Using json option
-  request({ url: url, json: true }, (error, response) => {
+  request({ url, json: true }, (error, response) => {
     if (error) {
       callback('Unable to connect to weather service!')
       // console.log(`errno: ${error.errno}, code: ${error.code}, hostname: ${error.hostname} `)
