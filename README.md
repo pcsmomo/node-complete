@@ -293,4 +293,21 @@ app.get('/', (req, res) => {
 app.use(express.static(publicDirectoryPath))
 ```
 
+### 47. Dynamic Pages with Templating
+
+- [handlebars - template engine](https://handlebarsjs.com/)
+- [npm handlebars](https://www.npmjs.com/package/handlebars)
+- [npm hbs - handlebars for express](https://www.npmjs.com/package/hbs)
+
+```sh
+npm i --save hbs
+```
+
+```js
+// render() instead of send()
+app.get('', (req, res) => {
+  res.render('index')
+})
+```
+
 </details>

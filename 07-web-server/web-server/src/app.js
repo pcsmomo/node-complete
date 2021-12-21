@@ -5,16 +5,32 @@ const { combine, timestamp, label, prettyPrint } = winston.format
 
 const app = express()
 
-/**************/
-// Static
 const publicDirectoryPath = path.join(__dirname, '../public')
 app.use(express.static(publicDirectoryPath))
+app.set('view engine', 'hbs')
 
 /**************/
 // Routes
-// app.get('/', (req, res) => {
-//   res.send('<h1>Express</h1>')
-// })
+app.get('', (req, res) => {
+  res.render('index', {
+    title: 'Weather',
+    name: 'Noah Kim'
+  })
+})
+
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About Me',
+    name: 'Noah Kim'
+  })
+})
+
+app.get('/help', (req, res) => {
+  res.render('help', {
+    helpText: 'This is a help text'
+  })
+})
+
 app.get('/weather', (req, res) => {
   res.send({
     forecast: 'It is snowing',
