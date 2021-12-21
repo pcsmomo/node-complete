@@ -252,4 +252,14 @@ HTTP request is can be done with this built-in raw `http.request`,\
 but the way to use is more complicated than other 3rd party libraries.\
 such as axios, request, node-fetch and so on
 
+## Section 7: Web Servers (Weather App)
+
+### 43. Hello Express!
+
+```sh
+npm init -y
+npm install --save express
+npm install --save winston
+```
+
 </details>
