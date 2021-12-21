@@ -4,6 +4,8 @@ const { combine, timestamp, label, prettyPrint } = winston.format
 
 const app = express()
 
+/**************/
+// Logging
 const logger = winston.createLogger({
   level: 'info',
   // format: winston.format.json(),
@@ -20,39 +22,35 @@ const logger = winston.createLogger({
   ]
 })
 
-logger.log({
-  level: 'info',
-  message: 'Pass an object and this works',
-  additional: 'properties',
-  are: 'passed along'
-})
-
 logger.info({
   message: 'Use a helper method if you want',
   additional: 'properties',
   are: 'passed along'
 })
 
+/**************/
+// Routes
 app.get('', (req, res) => {
-  res.send('Hello express!')
+  res.send('<h1>Hello express!</h1>')
 })
 
 app.get('/help', (req, res) => {
-  res.send('Help page')
+  res.send([{ name: 'Andrew' }, { name: 'Sarah' }])
 })
 
 app.get('/about', (req, res) => {
-  res.send('About page')
+  res.send('<h1>About</h1>')
 })
 
 app.get('/weather', (req, res) => {
-  res.send('Weather page')
+  res.send({
+    forecast: 'It is snowing',
+    location: 'Melbourne'
+  })
 })
 
-// app.com
-// app.com/help
-// app.com/about
-
+/**************/
+//
 if (process.env.NODE_ENV !== 'production') {
   logger.add(
     new winston.transports.Console({
