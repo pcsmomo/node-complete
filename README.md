@@ -310,4 +310,14 @@ app.get('', (req, res) => {
 })
 ```
 
+### 48. Customizing the Views Directory
+
+```js
+const viewsPath = path.join(__dirname, '../templates')
+app.set('views', viewsPath)
+```
+
+- [express app.set()](https://expressjs.com/en/5x/api.html#app.set)
+- [express res.render()](https://expressjs.com/en/5x/api.html#res.render)
+
 </details>
