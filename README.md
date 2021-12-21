@@ -262,4 +262,35 @@ npm install --save express
 npm install --save winston
 ```
 
+```js
+// node provides
+console.log(__dirname)
+console.log(__filename)
+```
+
+### 45. Serving up Static Assets
+
+[node path.join](https://nodejs.org/api/path.html)
+
+```js
+// Route public/index.html first
+const publicDirectoryPath = path.join(__dirname, '../public')
+app.use(express.static(publicDirectoryPath))
+
+app.get('/', (req, res) => {
+  res.send('<h1>Express</h1>')
+})
+```
+
+```js
+// Route app.get('/') first
+const publicDirectoryPath = path.join(__dirname, '../public')
+
+app.get('/', (req, res) => {
+  res.send('<h1>Express</h1>')
+})
+
+app.use(express.static(publicDirectoryPath))
+```
+
 </details>

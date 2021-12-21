@@ -1,8 +1,26 @@
+const path = require('path')
 const express = require('express')
 const winston = require('winston')
 const { combine, timestamp, label, prettyPrint } = winston.format
 
 const app = express()
+
+/**************/
+// Static
+const publicDirectoryPath = path.join(__dirname, '../public')
+app.use(express.static(publicDirectoryPath))
+
+/**************/
+// Routes
+// app.get('/', (req, res) => {
+//   res.send('<h1>Express</h1>')
+// })
+app.get('/weather', (req, res) => {
+  res.send({
+    forecast: 'It is snowing',
+    location: 'Melbourne'
+  })
+})
 
 /**************/
 // Logging
@@ -28,29 +46,6 @@ logger.info({
   are: 'passed along'
 })
 
-/**************/
-// Routes
-app.get('', (req, res) => {
-  res.send('<h1>Hello express!</h1>')
-})
-
-app.get('/help', (req, res) => {
-  res.send([{ name: 'Andrew' }, { name: 'Sarah' }])
-})
-
-app.get('/about', (req, res) => {
-  res.send('<h1>About</h1>')
-})
-
-app.get('/weather', (req, res) => {
-  res.send({
-    forecast: 'It is snowing',
-    location: 'Melbourne'
-  })
-})
-
-/**************/
-//
 if (process.env.NODE_ENV !== 'production') {
   logger.add(
     new winston.transports.Console({
