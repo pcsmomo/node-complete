@@ -320,4 +320,11 @@ app.set('views', viewsPath)
 - [express app.set()](https://expressjs.com/en/5x/api.html#app.set)
 - [express res.render()](https://expressjs.com/en/5x/api.html#res.render)
 
+### 49. Advanced Templating
+
+```sh
+# Watch js, hbs extensions
+nodemon src/app.js -e js,hbs
+```
+
 </details>
