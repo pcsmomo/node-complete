@@ -51,6 +51,22 @@ app.get('/weather', (req, res) => {
   })
 })
 
+app.get('/help/*', (req, res) => {
+  res.render('404', {
+    title: '404',
+    name: 'Noah Kim',
+    errorMessage: 'Help article not found'
+  })
+})
+
+app.get('*', (req, res) => {
+  res.render('404', {
+    title: '404',
+    name: 'Noah Kim',
+    errorMessage: 'Page not found'
+  })
+})
+
 /**************/
 // Logging
 const logger = winston.createLogger({
