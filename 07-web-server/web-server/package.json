@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "hbs": "^4.2.0",
+    "request": "^2.88.2",
     "winston": "^3.3.3"
   }
 }

@@ -348,4 +348,10 @@ if (!req.query.search) {
 }
 ```
 
+### 55. Building a JSON HTTP Endpoint
+
+```sh
+npm install --save request
+```
+
 </details>

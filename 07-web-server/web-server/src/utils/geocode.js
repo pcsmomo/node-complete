@@ -1,5 +1,5 @@
 const request = require('request')
-const { MAPBOX_KEY } = require('../config.js')
+const { MAPBOX_KEY } = require('../../config.js')
 
 const geocode = (address, callback) => {
   const encodedAddress = encodeURIComponent(address)
