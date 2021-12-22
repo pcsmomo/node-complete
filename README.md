@@ -327,4 +327,25 @@ app.set('views', viewsPath)
 nodemon src/app.js -e js,hbs
 ```
 
+### 54. The Query String
+
+```js
+// http://localhost:3000/products?search=games&rating=5
+app.get('/products', (req, res) => {
+  console.log(req.query)
+})
+```
+
+"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client" \
+-> 2 responses are sent
+
+```js
+// Common pattern, 'return res.send()'
+if (!req.query.search) {
+  return res.send({
+    error: 'You must provide a search term'
+  })
+}
+```
+
 </details>
