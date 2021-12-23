@@ -348,10 +348,31 @@ if (!req.query.search) {
 }
 ```
 
-### 55. Building a JSON HTTP Endpoint
+## Section 9: Application Deployment (Weather App)
+
+### 61. Joining Heroku and GitHub
 
 ```sh
-npm install --save request
+heroku -v
+heroku cli
+```
+
+### 62. Version Control with Git
+
+https://git-scm.com/book/en/v2
+
+```sh
+git --version
+```
+
+### 65. Setting up SSH Keys
+
+```sh
+ls -a -l ~/.ssh
+ssh-keygen -t rsa -b 4096 -C "pcsmomo@gmail.com"
+# ignore passphrase
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa
 ```
 
 </details>
