@@ -495,10 +495,15 @@ console.log(id.getTimestamp())
   ```
   - two callback functions (error, success) will be called,
 - Promise (Safe)
+
   ```js
   reject('Things went wrong!')
   resolve([7, 4, 1])
   ```
+
   - only reject will be called
+
+- [Mongodb Update Operator Documation](https://docs.mongodb.com/manual/reference/operator/update/)
+- $set, $unset, $inc, $min, etc.
 
 </details>
