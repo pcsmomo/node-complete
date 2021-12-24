@@ -14,4 +14,30 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   console.log('Connected correctly!')
 
   const db = client.db(databaseName)
+
+  // 1. deleteMany()
+  // db.collection('users')
+  //   .deleteMany({
+  //     age: 27
+  //   })
+  //   .then((result) => {
+  //     console.log(result)
+  //     console.log(result.deletedCount)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+
+  // 2. deleteOne()
+  db.collection('tasks')
+    .deleteOne({
+      description: 'Renew inspection'
+    })
+    .then((result) => {
+      console.log(result)
+      console.log(result.deletedCount)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 })
