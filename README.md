@@ -466,4 +466,24 @@ docker ps
 
 [MongoDB Node Documentation](https://mongodb.github.io/node-mongodb-native/4.2/classes/Collection.html)
 
+### 77. The ObjectID
+
+[MongoDB ObjectId](https://docs.mongodb.com/manual/reference/method/ObjectId/)
+
+ObjectID : GUID (Globally Unique Identifiers)\
+There won't be ID collision even when running several mongodb servers
+
+- The 12-byte ObjectId value consists of:
+- a 4-byte timestamp value, representing the ObjectId's creation, measured in seconds since the Unix epoch
+- a 5-byte random value generated once per process. This random value is unique to the machine and process.
+- a 3-byte incrementing counter, initialized to a random value
+
+```sh
+const id = new ObjectId()
+console.log(id)
+# new ObjectId("61c6416e770317fe7763125e")
+console.log(id.getTimestamp())
+# 2021-12-24T21:53:50.000Z
+```
+
 </details>
