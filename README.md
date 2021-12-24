@@ -363,6 +363,11 @@ https://git-scm.com/book/en/v2
 
 ```sh
 git --version
+git init
+git branch -m master main
+git remote add origin git@github.com:pcsmomo/noah-weather-application.git
+git push -u origin main
+
 ```
 
 ### 65. Setting up SSH Keys
@@ -373,6 +378,21 @@ ssh-keygen -t rsa -b 4096 -C "pcsmomo@gmail.com"
 # ignore passphrase
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
+ssh -T git@github.com
+```
+
+### 67. Deploying Node.js to Heroku
+
+```sh
+heroku keys:add
+heroku create noah-weather-app-demo
+# https://noah-weather-app-demo.herokuapp.com/ | https://git.heroku.com/noah-weather-app-demo.git
+git remote -v
+git push origin main
+git push heroku main
+heroku open
+# https://noah-weather-app-demo.herokuapp.com/
+# Perfect!!!
 ```
 
 </details>
