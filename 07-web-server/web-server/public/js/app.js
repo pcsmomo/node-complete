@@ -4,6 +4,7 @@ const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
+const weatherIcon = document.querySelector('#weather-icon')
 
 const fetchWeather = (address) => {
   messageOne.textContent = 'Loading...'
@@ -18,9 +19,10 @@ const fetchWeather = (address) => {
       }
 
       console.log(data.location)
-      console.log(data.forecast)
+      console.log(data.weatherData)
       messageOne.textContent = data.location
-      messageTwo.textContent = data.forecast
+      weatherIcon.src = data.weatherIcon
+      messageTwo.textContent = data.weatherData
     })
   })
 }

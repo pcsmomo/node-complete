@@ -53,3 +53,14 @@ button {
   color: white;
   padding: 8px;
 }
+
+#weather-data {
+  display: flex;
+  align-items: center;
+}
+
+#weather-icon {
+  width: 30px;
+  border-radius: 10px;
+  margin-right: 8px;
+}

@@ -23,9 +23,13 @@ const forecast = (latitude, longitude, callback) => {
       return
     }
 
-    const { temperature, weather_descriptions } = response.body.current
+    const { temperature, weather_descriptions, weather_icons, cloudcover } = response.body.current
 
-    callback(undefined, `${latitude}, ${longitude} is currently ${weather_descriptions[0]} and it is ${temperature} degrees out.`)
+    console.log(response.body.current)
+    callback(undefined, {
+      weatherIcon: weather_icons[0],
+      weatherData: `${latitude}, ${longitude} is currently ${weather_descriptions[0]}, ${temperature} degrees out and cloud is ${cloudcover}%.`
+    })
   })
 }
 
