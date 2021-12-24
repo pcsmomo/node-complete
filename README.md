@@ -402,4 +402,34 @@ npm uninstall -g nodemon
 npm install --save-dev nodemon
 ```
 
+## Section 10: MongoDB and Promises (Task App)
+
+### 71. MongoDB and NoSQL Databases
+
+I will be using docker
+
+```sh
+docker run --name mongodb --rm -d -p 27017:27017 mongo
+docker ps
+```
+
+### 74. Installing Database GUI Viewer
+
+[Robo 3T](https://robomongo.org/)
+
+Shell command
+
+1. On Robo 3T
+   - right click on my connection -> Open Shell -> db.version()
+2. On docker
+
+```sh
+docker exec -it mongodb bash
+mongo
+use admin
+# db.createUser({user:"user", pwd:"password", roles:[{role:"root", db:"admin"}]})
+db.version()
+# 5.0.5
+```
+
 </details>
