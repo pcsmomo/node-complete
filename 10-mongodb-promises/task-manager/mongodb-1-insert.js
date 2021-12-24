@@ -19,22 +19,31 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 
   const db = client.db(databaseName)
 
-  // Insert One
-  // db.collection('users').insertOne(
-  //   {
-  //     name: 'Noah',
-  //     age: 30
-  //   },
-  //   (error, result) => {
-  //     if (error) {
-  //       return console.log('Unable to insert user')
-  //     }
+  // 1. Insert One
+  db.collection('users').insertOne(
+    {
+      name: 'Noah',
+      age: 30
+    },
+    (error, result) => {
+      if (error) {
+        return console.log('Unable to insert user')
+      }
 
-  //     console.log(result)
-  //   }
-  // )
+      console.log(result)
 
-  // Insert Many
+      // search the inserted data
+      db.collection('users').findOne({ _id: result.insertedId }, (error, user) => {
+        if (error) {
+          return console.log('Unable to fetch')
+        }
+
+        console.log(user)
+      })
+    }
+  )
+
+  // 2. Insert Many
   // db.collection('users').insertMany(
   //   [
   //     { name: 'Jen', age: 28 },
@@ -49,7 +58,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   //   }
   // )
 
-  // Insert Many Tasks
+  // 3. Insert Many Tasks
   // db.collection('tasks').insertMany(
   //   [
   //     { description: 'Clean the house', completed: true },
