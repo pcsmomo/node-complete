@@ -8,6 +8,13 @@ The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Perci
   - notes-app
 - 06-asynchronous
   - weather-app
+- 07-web-server
+  - web-server
+    - node server fetching weather data
+    - hbs templates
+    - deploy to heroku
+- 10-mongodb-promises
+  - task-manager
 
 # Details
 
@@ -413,6 +420,8 @@ docker run --name mongodb --rm -d -p 27017:27017 mongo
 docker ps
 ```
 
+> But this command will lose data when restart as it's not connected to a volume
+
 ### 74. Installing Database GUI Viewer
 
 [Robo 3T](https://robomongo.org/)
@@ -431,5 +440,19 @@ use admin
 db.version()
 # 5.0.5
 ```
+
+### 75. Connecting and Inserting Documents
+
+1. ## [MongoDB Node Driver](https://docs.mongodb.com/drivers/node/current/)
+2. [npm mongodb](https://www.npmjs.com/package/mongodb)
+
+```sh
+npm init -y
+npm install --save mongodb
+# "mongodb": "^4.2.2"
+# Andrew is using "mongodb": 3.x.x
+```
+
+> Succeeded to connect and write data in the mongodb
 
 </details>
