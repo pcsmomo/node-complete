@@ -443,7 +443,7 @@ db.version()
 
 ### 75. Connecting and Inserting Documents
 
-1. ## [MongoDB Node Driver](https://docs.mongodb.com/drivers/node/current/)
+1. [MongoDB Node Driver](https://docs.mongodb.com/drivers/node/current/)
 2. [npm mongodb](https://www.npmjs.com/package/mongodb)
 
 ```sh
@@ -454,5 +454,16 @@ npm install --save mongodb
 ```
 
 > Succeeded to connect and write data in the mongodb
+
+### 76. Inserting Documents
+
+> Revisited Docker/Kubernetes course and recalled how to keep data
+
+```sh
+docker run --name mongodb --rm -d -p 27017:27017 -v task-manager-mongo:/data/db mongo
+docker ps
+```
+
+[MongoDB Node Documentation](https://mongodb.github.io/node-mongodb-native/4.2/classes/Collection.html)
 
 </details>
