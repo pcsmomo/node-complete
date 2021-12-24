@@ -395,4 +395,11 @@ heroku open
 # Perfect!!!
 ```
 
+### 69. Avoiding Global Modules
+
+```sh
+npm uninstall -g nodemon
+npm install --save-dev nodemon
+```
+
 </details>
