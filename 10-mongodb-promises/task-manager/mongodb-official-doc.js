@@ -1,5 +1,6 @@
 // npm mongodb document
 // https://www.npmjs.com/package/mongodb
+// It works promise way
 
 const { MongoClient } = require('mongodb')
 // or as an es module:

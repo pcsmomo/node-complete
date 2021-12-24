@@ -486,4 +486,19 @@ console.log(id.getTimestamp())
 # 2021-12-24T21:53:50.000Z
 ```
 
+### 79. Promises
+
+- Callback
+  ```js
+  callback('This is my error!', undefined)
+  callback(undefined, [1, 4, 7])
+  ```
+  - two callback functions (error, success) will be called,
+- Promise (Safe)
+  ```js
+  reject('Things went wrong!')
+  resolve([7, 4, 1])
+  ```
+  - only reject will be called
+
 </details>
