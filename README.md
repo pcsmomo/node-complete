@@ -52,4 +52,29 @@ node src/db/mongoose.js
 
 `__v: 0`: the version of the document
 
+```js
+mongoose.model('User')
+mongoose.model('Task')
+// -> They will be saved as "users" and "tasks", lower case and plural
+```
+
+### 85. Data Validation and Sanitization: Part I
+
+- [mongoose validation Documentation](https://mongoosejs.com/docs/validation.html)
+- [npm validator](https://www.npmjs.com/package/validator)
+- [mongoose SchemaTypes](https://mongoosejs.com/docs/schematypes.html)
+  ```js
+  email: {
+    type: String,
+    required: true,
+    validate(value) {}
+  }
+  ```
+
+```sh
+npm install --save validator
+# "validator": "^13.7.0"
+# in the lecture npm install --save validator@10.9.0
+```
+
 </details>
