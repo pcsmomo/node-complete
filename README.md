@@ -134,4 +134,11 @@ User.findById(_id)
   })
 ```
 
+### 93. Promise Chaining
+
+1. Callback way - nesting nesting nesting : complicated like weather web-server
+2. Promise way - easy to read
+
+[Mongoose Model.countDocuments()](https://mongoosejs.com/docs/api/model.html#model_Model.countDocuments)
+
 </details>
