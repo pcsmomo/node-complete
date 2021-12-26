@@ -105,4 +105,12 @@ REST API / RESTful API : (Representational State Transfer - Application Programm
   - Body
     {"\_id": "304cjkdfw034asd8ocvaw3", "description": "Order new drill bits", "completed": false}
 
+### 89. Resource Creation Endpoints: Part I
+
+```sh
+npm install --save express
+npm install --save-dev nodemon
+npm install --save morgan
+```
+
 </details>
