@@ -1,12 +1,14 @@
 require('../src/db/mongoose')
-const User = require('../src/models/user')
+const Task = require('../src/models/task')
 
-User.findByIdAndUpdate('61c8f04dbf99912851681cd1', {
-  age: 30
-})
-  .then((user) => {
-    console.log(user)
-    return User.countDocuments({ age: 30 })
+Task.countDocuments({ completed: false })
+  .then((result) => {
+    console.log(result)
+    return Task.findByIdAndDelete('61c8f3411ece53884a5b78fc')
+  })
+  .then((task) => {
+    console.log(task)
+    return Task.countDocuments({ completed: false })
   })
   .then((result) => {
     console.log(result)
