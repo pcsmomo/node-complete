@@ -113,4 +113,25 @@ npm install --save-dev nodemon
 npm install --save morgan
 ```
 
+### 91. Resource Reading Endpoints: Part I
+
+- [mongoose Queries Documentation](https://mongoosejs.com/docs/queries.html)
+- `Model.find()`
+
+```js
+User.findById(_id)
+  .then((user) => {
+    if (!user) {
+      // in Mongoose 6.1.3, if the length of _id is not 24, it will throw an error
+      res.status(404).send()
+    }
+
+    res.send(user)
+  })
+  .catch((e) => {
+    console.log('error?')
+    res.status(500).send()
+  })
+```
+
 </details>
