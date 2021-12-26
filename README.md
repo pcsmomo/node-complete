@@ -77,4 +77,32 @@ npm install --save validator
 # in the lecture npm install --save validator@10.9.0
 ```
 
+### 87. Structuring a REST API
+
+REST API / RESTful API : (Representational State Transfer - Application Programming Interface)
+
+- Create : POST / tasks
+- Read (all) : GET / tasks
+- Read (one) : GET / tasks/:id
+- Update (partially) : PATCH / tasks/:id
+- Update (whole) : PUT / tasks/:id
+- Delete : DELETE / tasks/:id
+
+- HTTP Request
+  - Header
+    - POST /tasks HTTP/1.1
+    - Accept: application/json
+    - Connection: Keep-Alive
+    - Authorization: Bearer eyTUDJKCVOAPFOEWIFSOFA...
+  - Body
+    {"description": "Order new drill bits"}
+- HTTP Response
+  - Header
+    - HTTP/1.1 201 Created
+    - Date: Sun, 26 Dec 2021 16:18:40 GMT
+    - Server: Express
+    - Content-Type: application/json
+  - Body
+    {"\_id": "304cjkdfw034asd8ocvaw3", "description": "Order new drill bits", "completed": false}
+
 </details>
