@@ -37,12 +37,35 @@ app.get('/users/:id', async (req, res) => {
     const user = await User.findById(_id)
     if (!user) {
       // in Mongoose 6.1.3, if the length of _id is not 24, it will throw an error
-      res.status(404).send()
+      return res.status(404).send()
     }
     res.send(user)
   } catch (e) {
     console.log(e)
     res.status(500).send()
+  }
+})
+
+app.patch('/users/:id', async (req, res) => {
+  const updates = Object.keys(req.body)
+  const allowedUpdates = ['name', 'email', 'password', 'age']
+  const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+  if (!isValidOperation) {
+    return res.status(400).send({ error: 'Invalid updates!' })
+  }
+
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+
+    if (!user) {
+      // if not return, the app will get crashed
+      return res.status(404).send()
+    }
+
+    res.send(user)
+  } catch (e) {
+    res.status(400).send(e)
   }
 })
 
@@ -72,7 +95,7 @@ app.get('/tasks/:id', async (req, res) => {
   try {
     const task = await Task.findById(_id)
     if (!task) {
-      res.status(400).send()
+      return res.status(404).send()
     }
     res.send(task)
   } catch (e) {

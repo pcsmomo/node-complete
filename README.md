@@ -160,4 +160,18 @@ Cannot redeclare block-scoped variable 'add'.ts(2451\
 }
 ```
 
+### 98. Resource Updating Endpoints: Part I
+
+```js
+// { new : true } - returning new object
+const user = await User.findOneAndUpdate(req.params.id, req.body, { new: true })
+```
+
+### 98. Resource Updating Endpoints: Part I
+
+```js
+// every elements in 'updates' are true, it returns true
+const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+```
+
 </details>
