@@ -222,4 +222,20 @@ module.exports = router
 
 ## Section 12: API Authentication and Security (Task App)
 
+### 103. Securely Storing Passwords: Part I
+
+[npm bcrypt](https://www.npmjs.com/package/bcryptjs)
+
+```sh
+npm i --save bcryptjs
+# "bcryptjs": "^2.4.3", published 5 years ago, but still being used
+```
+
+```js
+// salt value 8 is default
+const hashedPassword = await bcrypt.hash(password, 8)
+```
+
+> Hashing algorithm is only one-way. Cannot reverse
+
 </details>
