@@ -220,4 +220,6 @@ router.post('/', function (req, res) {
 module.exports = router
 ```
 
+## Section 12: API Authentication and Security (Task App)
+
 </details>
