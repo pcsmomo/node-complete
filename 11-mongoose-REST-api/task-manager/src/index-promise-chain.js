@@ -3,7 +3,6 @@ const morgan = require('morgan')
 require('./db/mongoose')
 const User = require('./models/user')
 const Task = require('./models/task')
-const { ObjectId } = require('mongodb')
 
 const app = express()
 const port = process.env.PORT || 3000
