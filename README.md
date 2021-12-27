@@ -174,4 +174,50 @@ const user = await User.findOneAndUpdate(req.params.id, req.body, { new: true })
 const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 ```
 
+### 101. Separate Route Files
+
+Differences between app and router\
+link: https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
+
+- app
+  - `const app = express()`
+  - has `listen()`
+  - Internal State
+- router
+  - `const router = new express.Router()`
+  - has smaller APIs
+
+> And also, when the app is bigger\
+> Router makes a strong structure to manage the app\
+> router can be consiered as a mini app
+
+```js
+// app.js - Main app
+var express = require('express'),
+  dogs = require('./routes/dogs'),
+  cats = require('./routes/cats'),
+  birds = require('./routes/birds')
+
+var app = express()
+
+app.use('/dogs', dogs)
+app.use('/cats', cats)
+app.use('/birds', birds)
+
+app.listen(3000)
+```
+
+```js
+// dogs.js - Mini app
+var express = require('express')
+var router = express.Router()
+router.get('/', function (req, res) {
+  res.send('GET handler for /dogs route.')
+})
+router.post('/', function (req, res) {
+  res.send('POST handler for /dogs route.')
+})
+module.exports = router
+```
+
 </details>
