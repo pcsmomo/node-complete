@@ -141,4 +141,23 @@ User.findById(_id)
 
 [Mongoose Model.countDocuments()](https://mongoosejs.com/docs/api/model.html#model_Model.countDocuments)
 
+### 95. Async/Await
+
+[How to disable TypeScript warnings in VSCode?](https://stackoverflow.com/questions/42632215/how-to-disable-typescript-warnings-in-vscode)
+
+I just don't want to see this warning message, when I write example codes.
+
+```
+Cannot redeclare block-scoped variable 'add'.ts(2451\
+93-promise-chaining.js(1, 7): 'add' was also declared here.
+```
+
+```js
+// .vscode/settings.json
+{
+  // "typescript.validate.enable": false
+  "javascript.validate.enable": false
+}
+```
+
 </details>
