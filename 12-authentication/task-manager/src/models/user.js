@@ -40,7 +40,15 @@ const userSchema = new mongoose.Schema({
         throw new Error('Age must be a positive number')
       }
     }
-  }
+  },
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 })
 
 // .methods. Instance Methods
@@ -48,6 +56,11 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = async function () {
   const user = this
   const token = jwt.sign({ _id: user._id.toString() }, 'thisismynewcourse')
+
+  user.tokens = user.tokens.concat({ token })
+  // user.tokens = user.tokens.push({ token })  // it doesn't work
+  await user.save()
+
   return token
 }
 
