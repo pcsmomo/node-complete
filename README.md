@@ -287,4 +287,14 @@ const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 d
 const data = jwt.verify(token, 'thisismynewcourse')
 ```
 
+### 107. Generating Authentication Tokens
+
+```js
+// .methods. Instance Methods
+// No arrow function. It needs to be bound
+userSchema.methods.generateAuthToken = async function () {}
+// .statics. : Model Methods
+userSchema.statics.findByCredentials = async (email, password) => {}
+```
+
 </details>
