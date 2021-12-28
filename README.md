@@ -271,4 +271,20 @@ await user.save()
 
 Need to drop the database and create it again
 
+### 106. JSON Web Tokens
+
+[npm jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+
+```sh
+npm i --save jsonwebtoken
+# "jsonwebtoken": "^8.5.1",
+```
+
+```js
+const jwt = require('jsonwebtoken')
+// const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '0 seconds' })
+const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days' })
+const data = jwt.verify(token, 'thisismynewcourse')
+```
+
 </details>

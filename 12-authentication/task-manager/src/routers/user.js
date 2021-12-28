@@ -14,6 +14,7 @@ router.post('/users', async (req, res) => {
   }
 })
 
+// Log in
 router.post('/users/login', async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.email, req.body.password)
@@ -33,6 +34,7 @@ router.get('/users', async (req, res) => {
   }
 })
 
+// Get a user
 router.get('/users/:id', async (req, res) => {
   const _id = req.params.id
 
@@ -48,6 +50,7 @@ router.get('/users/:id', async (req, res) => {
   }
 })
 
+// Update a user
 router.patch('/users/:id', async (req, res) => {
   const updates = Object.keys(req.body)
   const allowedUpdates = ['name', 'email', 'password', 'age']
@@ -78,6 +81,7 @@ router.patch('/users/:id', async (req, res) => {
   }
 })
 
+// Delete a user
 router.delete('/users/:id', async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id)
