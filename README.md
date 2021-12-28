@@ -238,4 +238,31 @@ const hashedPassword = await bcrypt.hash(password, 8)
 
 > Hashing algorithm is only one-way. Cannot reverse
 
+### 104. Securely Storing Passwords: Part II
+
+- [mongoose Schemas](https://mongoosejs.com/docs/guide.html)
+- [mongoose middleware](https://mongoosejs.com/docs/middleware.html)
+
+```js
+// ** Must use a stand function to bind, not an arrow function
+userSchema.pre('save', function (next) {
+  const user = this
+  console.log('just before saving')
+  next()
+})
+userSchema.post()
+```
+
+However `userSchema.pre('save', function (next) {})` won't be affected by findByIdAndUpdate\
+So it has to be changed
+
+```js
+const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+⬇️⬇️⬇️
+const user = await User.findById(req.params.id)
+Object.assign(user, req.body)
+// updates.forEach((update) => (user[update] = req.body[update]))
+await user.save()
+```
+
 </details>

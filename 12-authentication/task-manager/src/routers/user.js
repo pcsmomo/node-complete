@@ -47,12 +47,19 @@ router.patch('/users/:id', async (req, res) => {
   }
 
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+    const user = await User.findById(req.params.id)
 
     if (!user) {
       // if not return, the app will get crashed
       return res.status(404).send()
     }
+
+    Object.assign(user, req.body)
+    // updates.forEach((update) => (user[update] = req.body[update]))
+    await user.save()
+
+    // This won't get handled by 'save' middleware
+    // const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
 
     res.send(user)
   } catch (e) {

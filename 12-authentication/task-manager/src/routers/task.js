@@ -46,11 +46,19 @@ router.patch('/tasks/:id', async (req, res) => {
   }
 
   try {
-    const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+    const task = await Task.findById(req.params.id)
 
     if (!task) {
       return res.status(404).send()
     }
+
+    Object.assign(task, req.body)
+    // updates.forEach((update) => (task[update] = req.body[update]))
+    await task.save()
+
+    // This won't get handled by 'save' middleware
+    // const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+
     res.send(task)
   } catch (e) {
     res.status(400).send(e)
