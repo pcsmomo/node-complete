@@ -265,4 +265,10 @@ Object.assign(user, req.body)
 await user.save()
 ```
 
+### 105. Logging in Users
+
+`unique: true` : duplication is not allowed and create an index for that property
+
+Need to drop the database and create it again
+
 </details>
