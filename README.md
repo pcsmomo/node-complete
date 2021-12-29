@@ -297,4 +297,51 @@ userSchema.methods.generateAuthToken = async function () {}
 userSchema.statics.findByCredentials = async (email, password) => {}
 ```
 
+### 109. Accepting Authentication Tokens
+
+Add jwt token in the header
+
+- Header tab
+  - Key: 'Authorization'
+  - Value: 'Bearer <JWT Token>'
+
+### 110. Advanced Postman
+
+We can use Environment variables \
+When swapping between local / production url
+
+1. url
+   1. Add Environment at the top-right
+      - variable: url
+      - initial value: localhost:3000
+      - current value: localhost:3000
+   2. replace `localhost:3000` to {{url}}
+2. token
+   - We can set Auth -> Bearer Token in each request, but we can do even better
+   1. remove Autorization key from the header
+   2. Set Auth type to 'Inherit auth from parent' in Auth tab of the http request
+   3. Click 'Edit' the workplace setting at the left
+   4. Auth tab, set Bearer token and my jwt token (without 'Bearer ')
+   5. and set auth for Create user/Login user to 'No Auth'
+3. token - advanced
+   - Set workplace Bearer token to {{authToken}}
+4. Pre-req Tab
+   - Before request
+5. Tests Tab
+   - After response
+   ```js
+   // Login user - Tests
+   if (pm.response.code === 200) {
+     pm.environment.set('authToken', pm.response.json().token)
+   }
+   ```
+   ```js
+   // Create user - Tests
+   if (pm.response.code === 200) {
+     pm.environment.set('authToken', pm.response.json().token)
+   }
+   ```
+6. Now if token is expired, we can simply login once, we can set token
+7. And when we see the environment, 'authToken' is automatically added
+
 </details>
