@@ -351,4 +351,9 @@ When swapping between local / production url
 const userObject = user.toObject()
 ```
 
+```js
+// when it go through JSON.stringify, the toJSON() proceeds
+userSchema.methods.toJSON = function () {}
+```
+
 </details>

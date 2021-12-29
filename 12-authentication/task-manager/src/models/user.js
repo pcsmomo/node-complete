@@ -52,7 +52,10 @@ const userSchema = new mongoose.Schema({
 })
 
 // .methods. Instance Methods for individual instance
-userSchema.methods.getPublicProfile = function () {
+// way 1. basic way to get public profile
+// userSchema.methods.getPublicProfile = function () {
+// way 2 to get public profile using toJSON()
+userSchema.methods.toJSON = function () {
   const user = this
 
   // Converts this document into a plain-old JavaScript object (POJO).
