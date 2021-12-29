@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../models/user')
+const auth = require('../middlewares/auth')
 const router = new express.Router()
 
 // Create a user
@@ -26,14 +27,19 @@ router.post('/users/login', async (req, res) => {
   }
 })
 
-// Get users
-router.get('/users', async (req, res) => {
-  try {
-    const users = await User.find({})
-    res.send(users)
-  } catch (e) {
-    res.status(500).send()
-  }
+// Get users - we don't want to expose all user list
+// router.get('/users', auth, async (req, res) => {
+//   try {
+//     const users = await User.find({})
+//     res.send(users)
+//   } catch (e) {
+//     res.status(500).send()
+//   }
+// })
+
+// Get my profile
+router.get('/users/me', auth, async (req, res) => {
+  res.send(req.user)
 })
 
 // Get a user
