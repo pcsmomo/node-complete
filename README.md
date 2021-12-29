@@ -356,4 +356,13 @@ const userObject = user.toObject()
 userSchema.methods.toJSON = function () {}
 ```
 
+```js
+const user = await User.findByIdAndDelete(req.user._id)
+if (!user) {
+  return res.status(404).send()
+}
+⬇️⬇️⬇️
+await req.user.remove()
+```
+
 </details>

@@ -28,7 +28,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Scott\",\n    \"email\": \"scott@gmail.com\",\n    \"password\": \"fa12345678\"\n}",
+					"raw": "{\n    \"name\": \"Mei\",\n    \"email\": \"mei@gmail.com\",\n    \"password\": \"fa12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,7 +70,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"noah@gmail.com\",\n    \"password\": \"fa12345678\"\n}",
+					"raw": "{\n    \"email\": \"mei@gmail.com\",\n    \"password\": \"fa12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -193,7 +193,7 @@
 			"response": []
 		},
 		{
-			"name": "Read users (X)",
+			"name": "Read users (admin)",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -234,7 +234,7 @@
 			"response": []
 		},
 		{
-			"name": "Read user",
+			"name": "Read user (admin)",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -287,7 +287,7 @@
 			"response": []
 		},
 		{
-			"name": "Update user",
+			"name": "Update user (admin)",
 			"request": {
 				"method": "PATCH",
 				"header": [],
@@ -308,6 +308,33 @@
 					"path": [
 						"users",
 						"61ca8bfb30bdfd9802c6ecd3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update me",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Maggie\",\n    \"age\": \"27\",\n    \"password\": \"fa12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
 					]
 				}
 			},
@@ -341,7 +368,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete user",
+			"name": "Delete user (admin)",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -362,6 +389,33 @@
 					"path": [
 						"users",
 						"61cb79fe634f19d36f8c58fd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete me",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"mei@yahoo.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
 					]
 				}
 			},
