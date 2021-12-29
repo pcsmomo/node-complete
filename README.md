@@ -344,4 +344,11 @@ When swapping between local / production url
 6. Now if token is expired, we can simply login once, we can set token
 7. And when we see the environment, 'authToken' is automatically added
 
+### 112. Hiding Private Data
+
+```js
+// Converts this document into a plain-old JavaScript object (POJO).
+const userObject = user.toObject()
+```
+
 </details>

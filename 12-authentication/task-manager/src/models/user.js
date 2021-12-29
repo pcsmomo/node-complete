@@ -51,7 +51,19 @@ const userSchema = new mongoose.Schema({
   ]
 })
 
-// .methods. Instance Methods
+// .methods. Instance Methods for individual instance
+userSchema.methods.getPublicProfile = function () {
+  const user = this
+
+  // Converts this document into a plain-old JavaScript object (POJO).
+  const userObject = user.toObject()
+
+  delete userObject.password
+  delete userObject.tokens
+
+  return userObject
+}
+
 // No arrow function. It needs to be bound
 userSchema.methods.generateAuthToken = async function () {
   const user = this
@@ -64,7 +76,7 @@ userSchema.methods.generateAuthToken = async function () {
   return token
 }
 
-// .statics. : Model Methods
+// .statics. : Model Methods for upper case User model
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email })
 
