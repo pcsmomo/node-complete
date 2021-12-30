@@ -51,6 +51,13 @@ const userSchema = new mongoose.Schema({
   ]
 })
 
+// Vertual Property
+userSchema.virtual('tasks', {
+  ref: 'Task',
+  localField: '_id',
+  foreignField: 'owner'
+})
+
 // .methods. Instance Methods for individual instance
 // way 1. basic way to get public profile
 // userSchema.methods.getPublicProfile = function () {

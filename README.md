@@ -365,4 +365,61 @@ if (!user) {
 await req.user.remove()
 ```
 
+### 115. Authenticating Task Endpoints
+
+```js
+const Task = mongoose.model('Task', {
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User' // user._id
+  }
+})
+```
+
+1. Mongoose Populate()
+
+[mongoose Populate Documentation](https://mongoosejs.com/docs/populate.html)
+
+```js
+const task = await Task.findById('61cd4fe0f31b0e2675e05d42')
+// await task.populate('owner').execPopulate() // Old syntax
+await task.populate('owner')
+console.log(task.owner)
+// {
+//   _id: new ObjectId("61ccd8c91cdd283eba56ac02"),
+//   name: 'Maggie',
+//   email: 'mei@gmail.com',
+//   password: '$2a$08$qllmnTS0SPU7Akfp/zsYQOa6XDHyKMA4qSEVhWYJZNwjYMu6AVTtm',
+//   age: 27,
+//   tokens: [
+//     {
+//       token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWNjZDhjOTFjZGQyODNlYmE1NmFjMDIiLCJpYXQiOjE2NDA4MTQ3OTN9._f9Oqebbo9e94QSGVP98ZjKt_mO-WlrlwflwpPg7M1g',
+//       _id: new ObjectId("61ccd8c91cdd283eba56ac04")
+//     },
+//   ],
+//   __v: 2
+// }
+```
+
+2. Mongoose Virtuals
+
+- [mongoose Virtuals](https://mongoosejs.com/docs/tutorials/virtuals.html#populate)
+- In Mongoose, a virtual is a property that is not stored in MongoDB. Virtuals are typically used for computed properties on documents.
+
+```js
+// models/user.js
+userSchema.virtual('tasks', {
+  ref: 'Task',
+  localField: '_id',
+  foreignField: 'owner'
+})
+```
+
+```js
+const user = await User.findById('61ccd8c91cdd283eba56ac02')
+await user.populate('tasks')
+console.log(user.tasks)
+```
+
 </details>
