@@ -28,7 +28,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Mike\",\n    \"email\": \"mike@gmail.com\",\n    \"password\": \"fa12345678\"\n}",
+					"raw": "{\n    \"name\": \"Noah\",\n    \"email\": \"noah@gmail.com\",\n    \"password\": \"fa12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -173,7 +173,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"description\": \"   see Noah   \",\n    \"completed\": true\n}",
+					"raw": "{\n    \"description\": \"Daily learning\",\n    \"completed\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -257,12 +257,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tasks",
+					"raw": "{{url}}/tasks?completed=true",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tasks"
+					],
+					"query": [
+						{
+							"key": "completed",
+							"value": "true"
+						}
 					]
 				}
 			},
