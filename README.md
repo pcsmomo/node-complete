@@ -422,4 +422,6 @@ await user.populate('tasks')
 console.log(user.tasks)
 ```
 
+## Section 13: Sorting, Pagination, and Filtering (Task App)
+
 </details>
