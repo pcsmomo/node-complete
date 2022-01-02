@@ -424,4 +424,23 @@ console.log(user.tasks)
 
 ## Section 13: Sorting, Pagination, and Filtering (Task App)
 
+### 118. Working with Timestamps
+
+[mongoose Schema options](https://mongoosejs.com/docs/api/schema.html#schema_Schema)
+
+```js
+const userSchema = new mongoose.Schema(
+  {},
+  {
+    timestamps: true
+  }
+)
+```
+
+And drop the database
+
+> the timestamps shows only UTC time as mongoose only uses it.\
+> It we want, we can use 'npm moment-timezone'\
+> [Storing different time zone](https://stackoverflow.com/questions/35672248/how-to-change-date-timezone-in-mongoose)
+
 </details>
