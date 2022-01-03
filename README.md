@@ -443,4 +443,9 @@ And drop the database
 > It we want, we can use 'npm moment-timezone'\
 > [Storing different time zone](https://stackoverflow.com/questions/35672248/how-to-change-date-timezone-in-mongoose)
 
+### 120. Paginating Data
+
+- [mongoose populate options limit](https://mongoosejs.com/docs/populate.html#limit-vs-perDocumentLimit)
+- [mongoose query.prototype.skip()](https://mongoosejs.com/docs/api.html#query_Query-skip)
+
 </details>
