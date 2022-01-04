@@ -544,7 +544,7 @@
 						{
 							"key": "upload",
 							"type": "file",
-							"src": "/Users/noah/Documents/Study/Study_codes/udemy/node-complete/resources/14-file-uploads/node-course-images/philly.jpg"
+							"src": "/Users/noah/Documents/Study/Study_codes/udemy/node-complete/resources/14-file-uploads/node-course-images/ghost.png"
 						}
 					]
 				},
@@ -556,6 +556,36 @@
 					"port": "3000",
 					"path": [
 						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete avatar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/users/me/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me",
+						"avatar"
 					]
 				}
 			},

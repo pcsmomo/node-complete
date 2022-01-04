@@ -488,4 +488,29 @@ app.use((error, req, res, next) => {
 })
 ```
 
+### 127. Adding Images to User Profile
+
+```js
+// Buffer type is binary such as images
+avatar: {
+  type: Buffer
+}
+```
+
+```js
+// when multer doesn't have 'dest' property
+// multer will not save file in the avatars folder, but route handle it now
+const upload = multer({
+  // dest: 'avatars',
+})
+
+req.user.avatar = req.file.buffer
+```
+
+Go to jsbin.com site and check the saved avatar binary code works,
+
+```html
+<img src="data:image/jpg;base64, {Binary code}" />
+```
+
 </details>
