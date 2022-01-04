@@ -466,4 +466,26 @@ npm install --save multer
     - Key: select 'File' and write 'upload'
     - Value: choose .jpg file
 
+### 126. Handling Express Errors
+
+```js
+// Way 1
+app.get(
+  '/error',
+  errorMiddleware,
+  (req, res) => {
+    res.send()
+  },
+  // Error handling
+  (error, req, res, next) => {
+    res.status(400).send({ error: error.message })
+  }
+)
+
+// Way 2
+app.use((error, req, res, next) => {
+  res.status(400).send({ error: error.message })
+})
+```
+
 </details>

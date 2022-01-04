@@ -1,14 +1,8 @@
 const express = require('express')
-const morgan = require('morgan')
-require('./db/mongoose')
-const userRouter = require('./routers/user')
-const userAdminRouter = require('./routers/user-admin')
-const taskRouter = require('./routers/task')
+const multer = require('multer')
 
 const app = express()
-const port = process.env.PORT || 3000
 
-const multer = require('multer')
 const upload = multer({
   dest: 'images',
   limits: {
@@ -29,7 +23,7 @@ const upload = multer({
 
 app.post(
   '/upload',
-  upload.single('upload'),
+  errorMiddleware,
   (req, res) => {
     res.send()
   },
@@ -38,12 +32,17 @@ app.post(
   }
 )
 
-app.use(express.json())
-app.use(morgan('combined'))
-app.use(userRouter)
-app.use(userAdminRouter)
-app.use(taskRouter)
+const errorMiddleware = (req, res, next) => {
+  throw new Error('From my middleware')
+}
 
-app.listen(port, () => {
-  console.log('Server is up on port ' + port)
-})
+app.get(
+  '/error',
+  errorMiddleware,
+  (req, res) => {
+    res.send()
+  },
+  (error, req, res, next) => {
+    res.status(400).send({ error: error.message })
+  }
+)
