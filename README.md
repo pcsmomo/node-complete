@@ -450,4 +450,20 @@ And drop the database
 
 ## Section 14: File Uploads (Task App)
 
+### 123. Adding Support for File Uploads
+
+- [npm multer - file upload](https://www.npmjs.com/package/multer)
+- maintained by express team
+
+```sh
+npm install --save multer
+# "multer": "^1.4.4",
+```
+
+- Testing upload with postman
+  - POST localhost:3000/upload
+  - Body -> form-data
+    - Key: select 'File' and write 'upload'
+    - Value: choose .jpg file
+
 </details>
