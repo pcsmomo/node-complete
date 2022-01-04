@@ -448,4 +448,6 @@ And drop the database
 - [mongoose populate options limit](https://mongoosejs.com/docs/populate.html#limit-vs-perDocumentLimit)
 - [mongoose query.prototype.skip()](https://mongoosejs.com/docs/api.html#query_Query-skip)
 
+## Section 14: File Uploads (Task App)
+
 </details>
