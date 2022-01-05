@@ -546,4 +546,6 @@ npm install --save @sendgrid/mail
 # in the lecture npm install --save @sendgrid/mail@6.3.1
 ```
 
+The email sent via sendgrid will go in the Spam folder in my gmail account.
+
 </details>
