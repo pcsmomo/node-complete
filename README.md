@@ -536,4 +536,14 @@ const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).
 
 ## Section 15: Sending Emails (Task App)
 
+### 131. Exploring SendGrid
+
+Setting an account for Sendgrid and get the API key
+
+```sh
+npm install --save @sendgrid/mail
+# "@sendgrid/mail": "^7.6.0",
+# in the lecture npm install --save @sendgrid/mail@6.3.1
+```
+
 </details>
