@@ -520,4 +520,18 @@ Go to jsbin.com site and check the saved avatar binary code works,
 res.set('Content-type', 'image/jpg')
 ```
 
+### 129. Auto-Cropping and Image Formatting
+
+[npm sharp - resize image](https://www.npmjs.com/package/sharp)
+
+```sh
+npm install --save sharp
+```
+
+```js
+// 1. resize
+// 2. convert to png
+const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
+```
+
 </details>
