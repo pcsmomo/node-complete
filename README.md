@@ -534,4 +534,6 @@ npm install --save sharp
 const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
 ```
 
+## Section 15: Sending Emails (Task App)
+
 </details>
