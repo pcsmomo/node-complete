@@ -513,4 +513,11 @@ Go to jsbin.com site and check the saved avatar binary code works,
 <img src="data:image/jpg;base64, {Binary code}" />
 ```
 
+### 128. Serving up Files
+
+```js
+// response header
+res.set('Content-type', 'image/jpg')
+```
+
 </details>
