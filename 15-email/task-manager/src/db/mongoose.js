@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
-const mongoUrl = '127.0.0.1:27017'
-const databaseName = 'task-mananger-api'
+// const mongoUrl = '127.0.0.1:27017'
+// const databaseName = 'task-mananger-api'
 
 mongoose
-  .connect(`mongodb://${mongoUrl}/${databaseName}`, {
+  .connect(`mongodb://${process.env.MONGO_URL}/${process.env.DATABASE_NAME}`, {
     // https://mongoosejs.com/docs/migrating_to_6.html#no-more-deprecation-warning-options
     // useNewUrlParser: true,
     // useCreateIndex: true,

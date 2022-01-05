@@ -109,6 +109,7 @@ chromedriver
 # private API Keys
 config.js
 dev.js
+dev.env
 
 # image file folder
 avatars

@@ -15,6 +15,8 @@ The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Perci
     - deploy to heroku
 - 10-mongodb-promises
   - task-manager
+- until 16-testing
+  - task-manager: copied from the previous section
 
 # Details
 
@@ -547,5 +549,13 @@ npm install --save @sendgrid/mail
 ```
 
 The email sent via sendgrid will go in the Spam folder in my gmail account.
+
+### 133. Environment Variables
+
+```sh
+npm i --save-dev env-cmd
+# "env-cmd": "^10.1.0",
+# in the lecture npm install --save env-cmd@8.0.2
+```
 
 </details>
