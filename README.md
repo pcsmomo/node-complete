@@ -558,4 +558,26 @@ npm i --save-dev env-cmd
 # in the lecture npm install --save env-cmd@8.0.2
 ```
 
+### 135. Heroku Deployment
+
+```sh
+# 15-email/task-manager
+git --version
+git init
+git branch -m master main
+git remote add origin git@github.com:pcsmomo/noah-task-manager-api.git
+git push -u origin main
+```
+
+```sh
+# Heroku
+heroku create noah-task-manager-api
+
+# setup my config
+heroku config:set key=value
+git push heroku main
+```
+
+> Heroku is up, but something wrong.. hmm
+
 </details>
