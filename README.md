@@ -578,6 +578,7 @@ heroku config:set key=value
 git push heroku main
 ```
 
-> Heroku is up, but something wrong.. hmm
+> Heroku is up, but something wrong.. hmm\
+> Fixed up the MONGO_URL, and everything works perfect
 
 </details>
