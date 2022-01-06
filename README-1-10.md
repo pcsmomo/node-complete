@@ -506,4 +506,559 @@ console.log(id.getTimestamp())
 - [Mongodb Update Operator Documation](https://docs.mongodb.com/manual/reference/operator/update/)
 - $set, $unset, $inc, $min, etc.
 
+## Section 11: REST APIs and Mongoose (Task App)
+
+### 82. Section Intro: REST APIs and Mongoose
+
+[mongoose js](https://mongoosejs.com/)
+
+- ODM : Object Document Mapper
+- elegant mongodb object modeling for node.js
+- Mongoose makes easier to use mongodb than low level mongodb driver
+- In mongoose, we can use Model and Model has structure of all properties and also validations
+
+### 84. Creating a Mongoose Model
+
+```sh
+npm install --save mongoose
+# "mongoose": "^6.1.3"
+
+node src/db/mongoose.js
+# {
+#   name: 'Noah',
+#   age: 30,
+#   _id: new ObjectId("61c7e4bf5e1bc2380a939791"),
+#   __v: 0
+# }
+```
+
+`__v: 0`: the version of the document
+
+```js
+mongoose.model('User')
+mongoose.model('Task')
+// -> They will be saved as "users" and "tasks", lower case and plural
+```
+
+### 85. Data Validation and Sanitization: Part I
+
+- [mongoose validation Documentation](https://mongoosejs.com/docs/validation.html)
+- [npm validator](https://www.npmjs.com/package/validator)
+- [mongoose SchemaTypes](https://mongoosejs.com/docs/schematypes.html)
+  ```js
+  email: {
+    type: String,
+    required: true,
+    validate(value) {}
+  }
+  ```
+
+```sh
+npm install --save validator
+# "validator": "^13.7.0"
+# in the lecture npm install --save validator@10.9.0
+```
+
+### 87. Structuring a REST API
+
+REST API / RESTful API : (Representational State Transfer - Application Programming Interface)
+
+- Create : POST / tasks
+- Read (all) : GET / tasks
+- Read (one) : GET / tasks/:id
+- Update (partially) : PATCH / tasks/:id
+- Update (whole) : PUT / tasks/:id
+- Delete : DELETE / tasks/:id
+
+- HTTP Request
+  - Header
+    - POST /tasks HTTP/1.1
+    - Accept: application/json
+    - Connection: Keep-Alive
+    - Authorization: Bearer eyTUDJKCVOAPFOEWIFSOFA...
+  - Body
+    {"description": "Order new drill bits"}
+- HTTP Response
+  - Header
+    - HTTP/1.1 201 Created
+    - Date: Sun, 26 Dec 2021 16:18:40 GMT
+    - Server: Express
+    - Content-Type: application/json
+  - Body
+    {"\_id": "304cjkdfw034asd8ocvaw3", "description": "Order new drill bits", "completed": false}
+
+### 89. Resource Creation Endpoints: Part I
+
+```sh
+npm install --save express
+npm install --save-dev nodemon
+npm install --save morgan
+```
+
+### 91. Resource Reading Endpoints: Part I
+
+- [mongoose Queries Documentation](https://mongoosejs.com/docs/queries.html)
+- `Model.find()`
+
+```js
+User.findById(_id)
+  .then((user) => {
+    if (!user) {
+      // in Mongoose 6.1.3, if the length of _id is not 24, it will throw an error
+      res.status(404).send()
+    }
+
+    res.send(user)
+  })
+  .catch((e) => {
+    console.log('error?')
+    res.status(500).send()
+  })
+```
+
+### 93. Promise Chaining
+
+1. Callback way - nesting nesting nesting : complicated like weather web-server
+2. Promise way - easy to read
+
+[Mongoose Model.countDocuments()](https://mongoosejs.com/docs/api/model.html#model_Model.countDocuments)
+
+### 95. Async/Await
+
+[How to disable TypeScript warnings in VSCode?](https://stackoverflow.com/questions/42632215/how-to-disable-typescript-warnings-in-vscode)
+
+I just don't want to see this warning message, when I write example codes.
+
+```
+Cannot redeclare block-scoped variable 'add'.ts(2451\
+93-promise-chaining.js(1, 7): 'add' was also declared here.
+```
+
+```js
+// .vscode/settings.json
+{
+  // "typescript.validate.enable": false
+  "javascript.validate.enable": false
+}
+```
+
+### 98. Resource Updating Endpoints: Part I
+
+```js
+// { new : true } - returning new object
+const user = await User.findOneAndUpdate(req.params.id, req.body, { new: true })
+```
+
+### 98. Resource Updating Endpoints: Part I
+
+```js
+// every elements in 'updates' are true, it returns true
+const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+```
+
+### 101. Separate Route Files
+
+Differences between app and router\
+link: https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
+
+- app
+  - `const app = express()`
+  - has `listen()`
+  - Internal State
+- router
+  - `const router = new express.Router()`
+  - has smaller APIs
+
+> And also, when the app is bigger\
+> Router makes a strong structure to manage the app\
+> router can be consiered as a mini app
+
+```js
+// app.js - Main app
+var express = require('express'),
+  dogs = require('./routes/dogs'),
+  cats = require('./routes/cats'),
+  birds = require('./routes/birds')
+
+var app = express()
+
+app.use('/dogs', dogs)
+app.use('/cats', cats)
+app.use('/birds', birds)
+
+app.listen(3000)
+```
+
+```js
+// dogs.js - Mini app
+var express = require('express')
+var router = express.Router()
+router.get('/', function (req, res) {
+  res.send('GET handler for /dogs route.')
+})
+router.post('/', function (req, res) {
+  res.send('POST handler for /dogs route.')
+})
+module.exports = router
+```
+
+## Section 12: API Authentication and Security (Task App)
+
+### 103. Securely Storing Passwords: Part I
+
+[npm bcrypt](https://www.npmjs.com/package/bcryptjs)
+
+```sh
+npm i --save bcryptjs
+# "bcryptjs": "^2.4.3", published 5 years ago, but still being used
+```
+
+```js
+// salt value 8 is default
+const hashedPassword = await bcrypt.hash(password, 8)
+```
+
+> Hashing algorithm is only one-way. Cannot reverse
+
+### 104. Securely Storing Passwords: Part II
+
+- [mongoose Schemas](https://mongoosejs.com/docs/guide.html)
+- [mongoose middleware](https://mongoosejs.com/docs/middleware.html)
+
+```js
+// ** Must use a stand function to bind, not an arrow function
+userSchema.pre('save', function (next) {
+  const user = this
+  console.log('just before saving')
+  next()
+})
+userSchema.post()
+```
+
+However `userSchema.pre('save', function (next) {})` won't be affected by findByIdAndUpdate\
+So it has to be changed
+
+```js
+const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+⬇️⬇️⬇️
+const user = await User.findById(req.params.id)
+Object.assign(user, req.body)
+// updates.forEach((update) => (user[update] = req.body[update]))
+await user.save()
+```
+
+### 105. Logging in Users
+
+`unique: true` : duplication is not allowed and create an index for that property
+
+Need to drop the database and create it again
+
+### 106. JSON Web Tokens
+
+[npm jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+
+```sh
+npm i --save jsonwebtoken
+# "jsonwebtoken": "^8.5.1",
+```
+
+```js
+const jwt = require('jsonwebtoken')
+// const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '0 seconds' })
+const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days' })
+const data = jwt.verify(token, 'thisismynewcourse')
+```
+
+### 107. Generating Authentication Tokens
+
+```js
+// .methods. Instance Methods
+// No arrow function. It needs to be bound
+userSchema.methods.generateAuthToken = async function () {}
+// .statics. : Model Methods
+userSchema.statics.findByCredentials = async (email, password) => {}
+```
+
+### 109. Accepting Authentication Tokens
+
+Add jwt token in the header
+
+- Header tab
+  - Key: 'Authorization'
+  - Value: 'Bearer <JWT Token>'
+
+### 110. Advanced Postman
+
+We can use Environment variables \
+When swapping between local / production url
+
+1. url
+   1. Add Environment at the top-right
+      - variable: url
+      - initial value: localhost:3000
+      - current value: localhost:3000
+   2. replace `localhost:3000` to {{url}}
+2. token
+   - We can set Auth -> Bearer Token in each request, but we can do even better
+   1. remove Autorization key from the header
+   2. Set Auth type to 'Inherit auth from parent' in Auth tab of the http request
+   3. Click 'Edit' the workplace setting at the left
+   4. Auth tab, set Bearer token and my jwt token (without 'Bearer ')
+   5. and set auth for Create user/Login user to 'No Auth'
+3. token - advanced
+   - Set workplace Bearer token to {{authToken}}
+4. Pre-req Tab
+   - Before request
+5. Tests Tab
+   - After response
+   ```js
+   // Login user - Tests
+   if (pm.response.code === 200) {
+     pm.environment.set('authToken', pm.response.json().token)
+   }
+   ```
+   ```js
+   // Create user - Tests
+   if (pm.response.code === 200) {
+     pm.environment.set('authToken', pm.response.json().token)
+   }
+   ```
+6. Now if token is expired, we can simply login once, we can set token
+7. And when we see the environment, 'authToken' is automatically added
+
+### 112. Hiding Private Data
+
+```js
+// Converts this document into a plain-old JavaScript object (POJO).
+const userObject = user.toObject()
+```
+
+```js
+// when it go through JSON.stringify, the toJSON() proceeds
+userSchema.methods.toJSON = function () {}
+```
+
+```js
+const user = await User.findByIdAndDelete(req.user._id)
+if (!user) {
+  return res.status(404).send()
+}
+⬇️⬇️⬇️
+await req.user.remove()
+```
+
+### 115. Authenticating Task Endpoints
+
+```js
+const Task = mongoose.model('Task', {
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User' // user._id
+  }
+})
+```
+
+1. Mongoose Populate()
+
+[mongoose Populate Documentation](https://mongoosejs.com/docs/populate.html)
+
+```js
+const task = await Task.findById('61cd4fe0f31b0e2675e05d42')
+// await task.populate('owner').execPopulate() // Old syntax
+await task.populate('owner')
+console.log(task.owner)
+// {
+//   _id: new ObjectId("61ccd8c91cdd283eba56ac02"),
+//   name: 'Maggie',
+//   email: 'mei@gmail.com',
+//   password: '$2a$08$qllmnTS0SPU7Akfp/zsYQOa6XDHyKMA4qSEVhWYJZNwjYMu6AVTtm',
+//   age: 27,
+//   tokens: [
+//     {
+//       token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWNjZDhjOTFjZGQyODNlYmE1NmFjMDIiLCJpYXQiOjE2NDA4MTQ3OTN9._f9Oqebbo9e94QSGVP98ZjKt_mO-WlrlwflwpPg7M1g',
+//       _id: new ObjectId("61ccd8c91cdd283eba56ac04")
+//     },
+//   ],
+//   __v: 2
+// }
+```
+
+2. Mongoose Virtuals
+
+- [mongoose Virtuals](https://mongoosejs.com/docs/tutorials/virtuals.html#populate)
+- In Mongoose, a virtual is a property that is not stored in MongoDB. Virtuals are typically used for computed properties on documents.
+
+```js
+// models/user.js
+userSchema.virtual('tasks', {
+  ref: 'Task',
+  localField: '_id',
+  foreignField: 'owner'
+})
+```
+
+```js
+const user = await User.findById('61ccd8c91cdd283eba56ac02')
+await user.populate('tasks')
+console.log(user.tasks)
+```
+
+## Section 13: Sorting, Pagination, and Filtering (Task App)
+
+### 118. Working with Timestamps
+
+[mongoose Schema options](https://mongoosejs.com/docs/api/schema.html#schema_Schema)
+
+```js
+const userSchema = new mongoose.Schema(
+  {},
+  {
+    timestamps: true
+  }
+)
+```
+
+And drop the database
+
+> the timestamps shows only UTC time as mongoose only uses it.\
+> It we want, we can use 'npm moment-timezone'\
+> [Storing different time zone](https://stackoverflow.com/questions/35672248/how-to-change-date-timezone-in-mongoose)
+
+### 120. Paginating Data
+
+- [mongoose populate options limit](https://mongoosejs.com/docs/populate.html#limit-vs-perDocumentLimit)
+- [mongoose query.prototype.skip()](https://mongoosejs.com/docs/api.html#query_Query-skip)
+
+## Section 14: File Uploads (Task App)
+
+### 123. Adding Support for File Uploads
+
+- [npm multer - file upload](https://www.npmjs.com/package/multer)
+- maintained by express team
+
+```sh
+npm install --save multer
+# "multer": "^1.4.4",
+```
+
+- Testing upload with postman
+  - POST localhost:3000/upload
+  - Body -> form-data
+    - Key: select 'File' and write 'upload'
+    - Value: choose .jpg file
+
+### 126. Handling Express Errors
+
+```js
+// Way 1
+app.get(
+  '/error',
+  errorMiddleware,
+  (req, res) => {
+    res.send()
+  },
+  // Error handling
+  (error, req, res, next) => {
+    res.status(400).send({ error: error.message })
+  }
+)
+
+// Way 2
+app.use((error, req, res, next) => {
+  res.status(400).send({ error: error.message })
+})
+```
+
+### 127. Adding Images to User Profile
+
+```js
+// Buffer type is binary such as images
+avatar: {
+  type: Buffer
+}
+```
+
+```js
+// when multer doesn't have 'dest' property
+// multer will not save file in the avatars folder, but route handle it now
+const upload = multer({
+  // dest: 'avatars',
+})
+
+req.user.avatar = req.file.buffer
+```
+
+Go to jsbin.com site and check the saved avatar binary code works,
+
+```html
+<img src="data:image/jpg;base64, {Binary code}" />
+```
+
+### 128. Serving up Files
+
+```js
+// response header
+res.set('Content-type', 'image/jpg')
+```
+
+### 129. Auto-Cropping and Image Formatting
+
+[npm sharp - resize image](https://www.npmjs.com/package/sharp)
+
+```sh
+npm install --save sharp
+```
+
+```js
+// 1. resize
+// 2. convert to png
+const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
+```
+
+## Section 15: Sending Emails (Task App)
+
+### 131. Exploring SendGrid
+
+Setting an account for Sendgrid and get the API key
+
+```sh
+npm install --save @sendgrid/mail
+# "@sendgrid/mail": "^7.6.0",
+# in the lecture npm install --save @sendgrid/mail@6.3.1
+```
+
+The email sent via sendgrid will go in the Spam folder in my gmail account.
+
+### 133. Environment Variables
+
+```sh
+npm i --save-dev env-cmd
+# "env-cmd": "^10.1.0",
+# in the lecture npm install --save env-cmd@8.0.2
+```
+
+### 135. Heroku Deployment
+
+```sh
+# 15-email/task-manager
+git --version
+git init
+git branch -m master main
+git remote add origin git@github.com:pcsmomo/noah-task-manager-api.git
+git push -u origin main
+```
+
+```sh
+# Heroku
+heroku create noah-task-manager-api
+
+# setup my config
+heroku config:set key=value
+git push heroku main
+```
+
+> Heroku is up, but something wrong.. hmm\
+> Fixed up the MONGO_URL, and everything works perfect
+
 </details>
