@@ -152,4 +152,12 @@ expect(user.name).toEqual(expect.any(String))
 expect(user.avatar).toEqual(expect.any(Buffer))
 ```
 
+### 148. Setup Task Test Suite
+
+separate initialising part into fixtures/db.js
+
+- `"test": "env-cmd -f ./config/test.env jest --watch --runInBand",`
+- Alias: -i. Run all tests serially in the current process, rather than creating a worker pool of child processes that run tests. This can be useful for debugging.
+- [--runInBand](https://jestjs.io/docs/cli#--runinband)
+
 </details>
