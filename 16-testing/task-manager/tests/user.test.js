@@ -109,3 +109,11 @@ test('Should not update invalid user fields', async () => {
     .send({ location: 'Philadelphia' })
     .expect(400)
 })
+
+//
+// User Test Ideas
+//
+// Should not signup user with invalid name/email/password
+// Should not update user if unauthenticated
+// Should not update user with invalid name/email/password
+// Should not delete user if unauthenticated
