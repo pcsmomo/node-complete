@@ -81,4 +81,13 @@ npm install supertest --save-dev
 
 Separate app.js and index.js for testing app.js itself
 
+### 143. Jest Setup and Teardown
+
+[Jest Setup and Teardown](https://jestjs.io/docs/setup-teardown)
+
+```sh
+npm test
+# A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+```
+
 </details>
