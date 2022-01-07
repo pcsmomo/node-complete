@@ -174,4 +174,15 @@ npm i --save express
 npm i --save-dev nodemon
 ```
 
+### 154. Getting Started with Socket.io
+
+- [socket.io](https://socket.io/)
+- [npm socket.io](https://www.npmjs.com/package/socket.io)
+
+```sh
+npm i --save socket.io
+# "socket.io": "^4.4.1"
+# in the lecture, npm i --save socket.io@2.2.0
+```
+
 </details>
