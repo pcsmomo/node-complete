@@ -50,4 +50,21 @@ npm install --save-dev jest
 
 [Jest CLI Options](https://jestjs.io/docs/cli)
 
+### 141. Testing an Express Application: Part I
+
+Create test.env copied from dev.env and set the MONGODB_URL for testing\
+`MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api-test`
+
+[Configuring Jest Documentation](https://jestjs.io/docs/configuration#testenvironment-string)
+
+```json
+{
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
+```
+
+> If you are building a web app, you can use a browser-like environment through `jsdom` instead.
+
 </details>

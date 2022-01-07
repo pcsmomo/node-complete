@@ -110,6 +110,7 @@ chromedriver
 config.js
 dev.js
 dev.env
+test.env
 
 # image file folder
 avatars
