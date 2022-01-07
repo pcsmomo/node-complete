@@ -90,4 +90,22 @@ npm test
 # A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
 ```
 
+```js
+await request(app)
+  .post('/users')
+  .send({
+    name: 'Noah',
+    email: 'noah@example.com',
+    password: 'fa12345678'
+  })
+  .expect(201)
+```
+
+### 144. Testing with Authentication
+
+```js
+const userOneId = new mongoose.Types.ObjectId()
+await request(app).get('/users/me').set('Authorization', `Bearer ${userOne.tokens[0].token}`).send().expect(200)
+```
+
 </details>
