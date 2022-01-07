@@ -185,4 +185,48 @@ npm i --save socket.io
 # in the lecture, npm i --save socket.io@2.2.0
 ```
 
+[socket.io client](https://socket.io/docs/v4/client-installation/#standalone-build)
+
+```html
+<!-- index.html -->
+<script defer src="/socket.io/socket.io.js"></script>
+<script defer src="/js/chat.js"></script>
+```
+
+### 155. Socket.io Events
+
+```js
+// on server
+io.on('connection', (socket) => {
+  socket.emit('countUpdated', count)
+})
+
+// on client
+socket.on('countUpdated', (count) => {
+  console.log('The count has been updated!', count)
+})
+```
+
+```js
+// on client
+socket.emit('increment')
+
+// on server
+io.on('connection', (socket) => {
+  socket.on('increment', () => {
+    count++
+    io.emit('countUpdated', count)
+  })
+})
+```
+
+- `socket.emit('countUpdated', count)`
+  - to the particular connection
+- `io.emit('countUpdated', count)`
+  - to every single connection
+
+#### debugging websites in Chrome for iOS
+
+navigate `chrome://inspect` and click the `start logging` button
+
 </details>
