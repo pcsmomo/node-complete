@@ -1,4 +1,3 @@
-const { expect } = require('@jest/globals')
 const { calculateTip, fahrenheitToCelsius, celsiusToFahrenheit } = require('./138-math.js')
 
 test('Should calculate total with tip!', () => {
@@ -25,6 +24,6 @@ test('Should convert 0 C to 32 F', () => {
   expect(fahrenheit).toBe(32)
 })
 
-test.skip('This should fail', () => {
-  throw new Error('Failure')
-})
+// test.skip('This should fail', () => {
+//   throw new Error('Failure')
+// })

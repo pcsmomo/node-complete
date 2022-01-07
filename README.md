@@ -46,4 +46,8 @@ npm install --save-dev jest
   - Profiling
 - Peace of mind
 
+### 140. Testing Asynchronous Code
+
+[Jest CLI Options](https://jestjs.io/docs/cli)
+
 </details>
