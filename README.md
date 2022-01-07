@@ -134,4 +134,22 @@ expect(response.body).toMatchObject({
 
 [Jest Mock Functions](https://jestjs.io/docs/mock-function-api)
 
+### 147. Wrapping up User Tests
+
+fixtures: assets?
+
+```js
+// attach file or image
+await request(app)
+  .post('/users/me/avatar')
+  .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+  .attach('avatar', 'tests/fixtures/ghost.png')
+  .expect(200)
+
+// expect.any()
+const user = await User.findById(userOneId)
+expect(user.name).toEqual(expect.any(String))
+expect(user.avatar).toEqual(expect.any(Buffer))
+```
+
 </details>
