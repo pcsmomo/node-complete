@@ -108,4 +108,19 @@ const userOneId = new mongoose.Types.ObjectId()
 await request(app).get('/users/me').set('Authorization', `Bearer ${userOne.tokens[0].token}`).send().expect(200)
 ```
 
+### 145. Advanced Assertions
+
+```js
+expect(user).not.toBeNull()
+expect(response.body).toMatchObject({
+  user: {
+    name: 'Noah',
+    email: 'noah@example.com'
+  },
+  token: user.tokens[0].token
+})
+```
+
+[Jest more matchers](https://jestjs.io/docs/expect#tomatchobjectobject)
+
 </details>
