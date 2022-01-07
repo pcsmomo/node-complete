@@ -123,4 +123,15 @@ expect(response.body).toMatchObject({
 
 [Jest more matchers](https://jestjs.io/docs/expect#tomatchobjectobject)
 
+### 146. Mocking Libraries
+
+- `const sgMail = require('@sendgrid/mail')`
+- To mock this import, create as the same folder structure under `__mocks__`
+- `__mocks__`
+  - `@sendgrid`
+  - `mail.js`
+- and we don't want to do anything with the mock functions, so just declare those two functions we used in our code
+
+[Jest Mock Functions](https://jestjs.io/docs/mock-function-api)
+
 </details>
