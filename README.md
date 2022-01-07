@@ -17,6 +17,8 @@ The Complete Node.js Developer Course (3rd Edition) by Andrew Mead and Rob Perci
   - task-manager
 - until 16-testing
   - task-manager: copied from the previous section
+- 17-web-socket
+  - chat-app: socket.io
 
 # Details
 
@@ -159,5 +161,17 @@ separate initialising part into fixtures/db.js
 - `"test": "env-cmd -f ./config/test.env jest --watch --runInBand",`
 - Alias: -i. Run all tests serially in the current process, rather than creating a worker pool of child processes that run tests. This can be useful for debugging.
 - [--runInBand](https://jestjs.io/docs/cli#--runinband)
+
+## Section 17: Real-Time Web Applications with Socket.io (Chat App)
+
+### 152. Creating the Chat App Project
+
+```sh
+mkdir chat-app
+cd chat-app
+npm init -y
+npm i --save express
+npm i --save-dev nodemon
+```
 
 </details>
