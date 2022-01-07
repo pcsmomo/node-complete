@@ -67,4 +67,18 @@ Create test.env copied from dev.env and set the MONGODB_URL for testing\
 
 > If you are building a web app, you can use a browser-like environment through `jsdom` instead.
 
+### 142. Testing an Express Application: Part II
+
+supertest is a really good package for testing express app
+
+[npm supertest](https://www.npmjs.com/package/supertest)
+
+```sh
+npm install supertest --save-dev
+# "supertest": "^6.1.6"
+# in the lecture, npm install supertest --save-dev@3.4.1
+```
+
+Separate app.js and index.js for testing app.js itself
+
 </details>
