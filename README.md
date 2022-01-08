@@ -279,4 +279,16 @@ Using Mustache which is similar with handlebar(hbs) but mustache is the original
 
 [Mustache - Logic-less templates](http://mustache.github.io/)
 
+### 163. Working with Time
+
+```js
+const now = new Date()
+now.toString()
+now.getDate()
+now.getTime() // timestamp: +- from 1/1/1970
+```
+
+- [Moment.js - timestamp handling](https://momentjs.com/)
+- [moment display documentation](https://momentjs.com/docs/#/displaying/)
+
 </details>
