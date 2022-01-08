@@ -273,4 +273,10 @@ npm install --save bad-words
 const $messageForm = document.querySelector('#message-form')
 ```
 
+### 161. Rendering Messages
+
+Using Mustache which is similar with handlebar(hbs) but mustache is the original.
+
+[Mustache - Logic-less templates](http://mustache.github.io/)
+
 </details>
