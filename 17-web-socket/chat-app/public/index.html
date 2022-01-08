@@ -24,11 +24,19 @@
       <input name="message" placeholder="Message" />
       <button type="submit">Send</button>
 
+      <!-- mustache templates: start -->
       <script id="message-template" type="text/html">
         <div>
           <p>{{message}}</p>
         </div>
       </script>
+
+      <script id="location-message-template" type="text/html">
+        <div>
+          <p><a href="{{url}}" target="_blank">My current location</a></p>
+        </div>
+      </script>
+      <!-- mustache templates: end -->
     </form>
     <button id="send-location">Send location</button>
   </body>
