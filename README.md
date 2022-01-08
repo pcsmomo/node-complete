@@ -217,16 +217,27 @@ io.on('connection', (socket) => {
     count++
     io.emit('countUpdated', count)
   })
-})
+})****
 ```
 
-- `socket.emit('countUpdated', count)`
-  - to the particular connection
-- `io.emit('countUpdated', count)`
-  - to every single connection
+1. `socket.emit('countUpdated', count)`
+   - to the particular connection
+2. `io.emit('countUpdated', count)`
+   - to every single connection
 
 #### debugging websites in Chrome for iOS
 
 navigate `chrome://inspect` and click the `start logging` button
+
+### 157. Broadcasting Events
+
+3. `socket.broadcast.emit('message', 'A new user has joined')`
+   - to everyone excluding myself
+
+- io.on() is used when connecting only.
+  - `io.on('connection', (socket) => {})`
+- otherwise we use socket.on()
+  - `socket.on('sendMessage', (message) => {})`
+  - `socket.on('disconnect', (message) => {})`
 
 </details>
