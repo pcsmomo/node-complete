@@ -266,4 +266,11 @@ npm install --save bad-words
 
 > This is good to check from frontend side if the server side has received my action/message correctly
 
+### 160. Form and Button States
+
+```js
+// $ indicates an element as a convention
+const $messageForm = document.querySelector('#message-form')
+```
+
 </details>
