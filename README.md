@@ -255,4 +255,15 @@ navigator.geolocation.getCurrentPosition((position) => {
 io.emit('message', `https://google.com/maps?q=${coords.latitude},${coords.longitude}`)
 ```
 
+### 159. Event Acknowledgements
+
+[npm bad-words](https://www.npmjs.com/package/bad-words)
+
+```sh
+npm install --save bad-words
+# "bad-words": "^3.0.4",
+```
+
+> This is good to check from frontend side if the server side has received my action/message correctly
+
 </details>
