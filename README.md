@@ -217,7 +217,7 @@ io.on('connection', (socket) => {
     count++
     io.emit('countUpdated', count)
   })
-})****
+})
 ```
 
 1. `socket.emit('countUpdated', count)`
@@ -239,5 +239,20 @@ navigate `chrome://inspect` and click the `start logging` button
 - otherwise we use socket.on()
   - `socket.on('sendMessage', (message) => {})`
   - `socket.on('disconnect', (message) => {})`
+
+### 158. Sharing Your Location
+
+[geolocation - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+
+```js
+// get the current location from the brwoser
+navigator.geolocation.getCurrentPosition((position) => {
+  console.log(position.coords.latitude, position.coords.longitude)
+})
+```
+
+```js
+io.emit('message', `https://google.com/maps?q=${coords.latitude},${coords.longitude}`)
+```
 
 </details>
