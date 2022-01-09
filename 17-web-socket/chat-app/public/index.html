@@ -14,31 +14,46 @@
     <script defer src="/socket.io/socket.io.js"></script>
     <script defer src="/js/chat.js"></script>
 
+    <link rel="icon" href="img/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Chat App</title>
   </head>
   <body>
-    <h1>Chat App!</h1>
+    <div class="chat">
+      <div class="chat__sidebar"></div>
+      <div class="chat__main">
+        <div id="messages" class="chat__messages"></div>
 
-    <div id="messages"></div>
-
-    <form id="message-form" autocomplete="off">
-      <input name="message" placeholder="Message" />
-      <button type="submit">Send</button>
-
-      <!-- mustache templates: start -->
-      <script id="message-template" type="text/html">
-        <div>
-          <p>{{createdAt}} {{message}}</p>
+        <div class="compose">
+          <form id="message-form" autocomplete="off">
+            <input name="message" placeholder="Message" />
+            <button type="submit">Send</button>
+          </form>
+          <button id="send-location">Send location</button>
         </div>
-      </script>
+      </div>
+    </div>
 
-      <script id="location-message-template" type="text/html">
-        <div>
-          <p>{{createdAt}} <a href="{{url}}" target="_blank">My current location</a></p>
-        </div>
-      </script>
-      <!-- mustache templates: end -->
-    </form>
-    <button id="send-location">Send location</button>
+    <!-- mustache templates: start -->
+    <script id="message-template" type="text/html">
+      <div class="message">
+        <p>
+          <span class="message__name">Some User Name</span>
+          <span class="message__meta">{{createdAt}}</span>
+        </p>
+        <p>{{message}}</p>
+      </div>
+    </script>
+
+    <script id="location-message-template" type="text/html">
+      <div class="message">
+        <p>
+          <span class="message__name">Some User Name</span>
+          <span class="message__meta">{{createdAt}}</span>
+        </p>
+        <p><a href="{{url}}" target="_blank">My current location</a></p>
+      </div>
+    </script>
+    <!-- mustache templates: end -->
   </body>
 </html>
