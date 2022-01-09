@@ -291,4 +291,14 @@ now.getTime() // timestamp: +- from 1/1/1970
 - [Moment.js - timestamp handling](https://momentjs.com/)
 - [moment display documentation](https://momentjs.com/docs/#/displaying/)
 
+### 166. Join Page
+
+```html
+<form autocomplete="off" action="/chat.html">
+  <input type="text" name="username" placeholder="Display name" required />
+  <input type="text" name="room" placeholder="Room" required />
+</form>
+<!-- http://localhost:3000/chat.html?username=Noah&room=Mel -->
+```
+
 </details>
