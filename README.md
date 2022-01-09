@@ -322,4 +322,12 @@ socket.broadcast.to(room).emit('message', generateMessage(`${username} has joine
   - io.to.emit
   - socket.broadcast.to.emit
 
+### 168. Storing Users: Part I
+
+```js
+const index = users.findIndex((user) => user.id === id)
+// users.filter will go through all users, but findIndex will stop when it finds
+// slightly better performance
+```
+
 </details>
