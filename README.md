@@ -301,4 +301,25 @@ now.getTime() // timestamp: +- from 1/1/1970
 <!-- http://localhost:3000/chat.html?username=Noah&room=Mel -->
 ```
 
+### 167. Socket.io Rooms
+
+[npm qs - parse query string](https://www.npmjs.com/package/qs)
+
+```js
+const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true })
+```
+
+```js
+socket.join(room)
+socket.broadcast.to(room).emit('message', generateMessage(`${username} has joined!`))
+```
+
+- socket.emit
+- (To everyone)
+  - io.emit
+  - socket.broadcast.emit
+- (To the specific room)
+  - io.to.emit
+  - socket.broadcast.to.emit
+
 </details>
