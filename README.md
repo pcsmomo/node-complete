@@ -336,4 +336,15 @@ const index = users.findIndex((user) => user.id === id)
 const $newMessage = $messages.lastElementChild
 ```
 
+### 174. Deploying the Chat Application
+
+```sh
+git init
+git add .
+git commit -m "init commit"
+heroku create noah-chat-app
+git branch -m master main
+git push heroku main
+```
+
 </details>
