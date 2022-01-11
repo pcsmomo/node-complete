@@ -330,4 +330,10 @@ const index = users.findIndex((user) => user.id === id)
 // slightly better performance
 ```
 
+### 173. Automatic Scrolling
+
+```js
+const $newMessage = $messages.lastElementChild
+```
+
 </details>
